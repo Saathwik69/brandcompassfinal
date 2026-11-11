@@ -1,0 +1,21 @@
+# Free demonstration deployment. SQLite data resets on sleep/restart/redeploy.
+# For durable records, see GITHUB_AND_LIVE_SETUP.md (persistent disk option).
+services:
+  - type: web
+    name: brandcompass-byterift
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: npm ci --ignore-scripts && npm test
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: ALLOW_SIGNUP
+        value: "true"

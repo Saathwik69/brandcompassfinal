@@ -1,0 +1,15 @@
+data/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+.wrangler/
+coverage/
+*.log
+.DS_Store
+.openai/local/
