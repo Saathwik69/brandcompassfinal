@@ -1,9 +1,0 @@
-data
-.git
-.env
-.env.*
-*.sqlite*
-*.db*
-.wrangler
-node_modules
-dist
