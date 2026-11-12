@@ -1,0 +1,985 @@
+{
+  "dataset": "Two-part synthetic diagnostic: (1) Original 30-case claim_evaluation.json diagnostic set, and (2) Separately prepared 36-case semantic_claim_benchmark.json testing paraphrases, canonical unit conversion, implicit comparisons, negation and unit mismatches.",
+  "task": "Detect whether a text contains a factual/promotional statement requiring additional verification against the seeded facts, while verifying valid paraphrases with matching quantities, canonical units, polarity and current sources.",
+  "count": 30,
+  "confusion_matrix": {
+    "tp": 18,
+    "tn": 12,
+    "fp": 0,
+    "fn": 0
+  },
+  "precision": 1,
+  "recall": 1,
+  "f1": 1,
+  "outcomes": [
+    {
+      "text": "Verdant Bottle holds 750 ml.",
+      "needs_verification": false,
+      "note": "Exact approved capacity.",
+      "predicted_needs_verification": false,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle holds 750 ml.",
+          "status": "supported",
+          "match_type": "exact"
+        }
+      ],
+      "result": "TN"
+    },
+    {
+      "text": "Verdant Bottle costs INR 999.",
+      "needs_verification": false,
+      "note": "Exact approved price.",
+      "predicted_needs_verification": false,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle costs INR 999.",
+          "status": "supported",
+          "match_type": "exact"
+        }
+      ],
+      "result": "TN"
+    },
+    {
+      "text": "Verdant Bottle keeps drinks cold for 12 hours.",
+      "needs_verification": false,
+      "note": "Exact approved thermal claim.",
+      "predicted_needs_verification": false,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle keeps drinks cold for 12 hours.",
+          "status": "supported",
+          "match_type": "exact"
+        }
+      ],
+      "result": "TN"
+    },
+    {
+      "text": "Standard delivery takes 3 to 5 business days.",
+      "needs_verification": false,
+      "note": "Exact approved shipping statement.",
+      "predicted_needs_verification": false,
+      "detected_claims": [
+        {
+          "text": "Standard delivery takes 3 to 5 business days.",
+          "status": "supported",
+          "match_type": "exact"
+        }
+      ],
+      "result": "TN"
+    },
+    {
+      "text": "Find your next everyday companion.",
+      "needs_verification": false,
+      "note": "Subjective invitation.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Take a moment outdoors.",
+      "needs_verification": false,
+      "note": "No factual product claim.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Everyday, better.",
+      "needs_verification": false,
+      "note": "Brand tagline.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Designed for your daily routine.",
+      "needs_verification": false,
+      "note": "Broad subjective positioning.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Welcome to Verdant.",
+      "needs_verification": false,
+      "note": "Greeting.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Choose the colour that feels like you.",
+      "needs_verification": false,
+      "note": "Subjective choice.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Verdant Bottle holds 900 ml.",
+      "needs_verification": true,
+      "note": "Unapproved quantity.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle holds 900 ml.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Verdant Bottle costs INR 699.",
+      "needs_verification": true,
+      "note": "Unapproved price.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle costs INR 699.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Verdant Bottle keeps drinks cold for 48 hours.",
+      "needs_verification": true,
+      "note": "Unapproved duration.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle keeps drinks cold for 48 hours.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "We are the world's best bottle.",
+      "needs_verification": true,
+      "note": "Unsubstantiated superlative.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "We are the world's best bottle.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Guaranteed performance in every climate.",
+      "needs_verification": true,
+      "note": "Absolute guarantee.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Guaranteed performance in every climate.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Certified safe for every use.",
+      "needs_verification": true,
+      "note": "Unverified certification.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Certified safe for every use.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Our product is carbon neutral.",
+      "needs_verification": true,
+      "note": "Unverified environmental claim.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Our product is carbon neutral.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Trusted by 50000 customers.",
+      "needs_verification": true,
+      "note": "Unverified audience statistic.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Trusted by 50000 customers.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Enjoy 20% off today.",
+      "needs_verification": true,
+      "note": "Unapproved promotion.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Enjoy 20% off today.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "The safest bottle for your family.",
+      "needs_verification": true,
+      "note": "Unverified safety superlative.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "The safest bottle for your family.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Our leading design beats the competition.",
+      "needs_verification": true,
+      "note": "Unverified comparative claim.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Our leading design beats the competition.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Our bottle cures headaches.",
+      "needs_verification": true,
+      "note": "Unverified health claim.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Our bottle cures headaches.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Verdant Bottle does not hold 750 ml.",
+      "needs_verification": true,
+      "note": "Negation is not an approved fact.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Verdant Bottle does not hold 750 ml.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Delivery takes 2 days.",
+      "needs_verification": true,
+      "note": "Unapproved delivery time.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Delivery takes 2 days.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Our bottle lasts twice as long.",
+      "needs_verification": true,
+      "note": "Implicit numeric comparison is a known blind spot.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Our bottle lasts twice as long.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Buy it for half the price.",
+      "needs_verification": true,
+      "note": "Implicit numerical pricing claim is a known blind spot.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Buy it for half the price.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "This bottle is unbreakable.",
+      "needs_verification": true,
+      "note": "Absolute claim outside the trigger vocabulary.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "This bottle is unbreakable.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Our insulation outperforms every competitor.",
+      "needs_verification": true,
+      "note": "Comparative wording outside the trigger vocabulary.",
+      "predicted_needs_verification": true,
+      "detected_claims": [
+        {
+          "text": "Our insulation outperforms every competitor.",
+          "status": "cannot_verify",
+          "match_type": "none"
+        }
+      ],
+      "result": "TP"
+    },
+    {
+      "text": "Best wishes from the Verdant team.",
+      "needs_verification": false,
+      "note": "Best is used as a greeting, not a superiority claim.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    },
+    {
+      "text": "Here are 3 ways to enjoy your walk.",
+      "needs_verification": false,
+      "note": "A list heading uses a number without a factual product claim.",
+      "predicted_needs_verification": false,
+      "detected_claims": [],
+      "result": "TN"
+    }
+  ],
+  "semantic_benchmark": {
+    "count": 36,
+    "confusion_matrix": {
+      "tp": 18,
+      "tn": 18,
+      "fp": 0,
+      "fn": 0
+    },
+    "precision": 1,
+    "recall": 1,
+    "f1": 1,
+    "expiry_check_passed": true,
+    "outcomes": [
+      {
+        "id": "b-01",
+        "category": "exact_approved",
+        "text": "Verdant Bottle holds 750 ml.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Exact approved capacity fact.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle holds 750 ml.",
+            "status": "supported",
+            "match_type": "exact"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-02",
+        "category": "exact_approved",
+        "text": "Verdant Bottle costs INR 999.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Exact approved retail price fact.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle costs INR 999.",
+            "status": "supported",
+            "match_type": "exact"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-03",
+        "category": "exact_approved",
+        "text": "Verdant Bottle keeps drinks cold for 12 hours.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Exact approved cold retention fact.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle keeps drinks cold for 12 hours.",
+            "status": "supported",
+            "match_type": "exact"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-04",
+        "category": "exact_approved",
+        "text": "Standard delivery takes 3 to 5 business days.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Exact approved standard delivery fact.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Standard delivery takes 3 to 5 business days.",
+            "status": "supported",
+            "match_type": "exact"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-05",
+        "category": "paraphrase_supported",
+        "text": "The Verdant Bottle has a capacity of 750 millilitres.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase with spelled-out millilitres unit.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "The Verdant Bottle has a capacity of 750 millilitres.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-06",
+        "category": "paraphrase_supported",
+        "text": "Each Verdant Bottle holds 0.75 litres of water.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase with litre-to-ml canonical unit conversion (0.75 L = 750 ml).",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Each Verdant Bottle holds 0.75 litres of water.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-07",
+        "category": "paraphrase_supported",
+        "text": "The Verdant Bottle is priced at ₹999.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase using INR currency symbol ₹999.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "The Verdant Bottle is priced at ₹999.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-08",
+        "category": "paraphrase_supported",
+        "text": "Verdant Bottle retails for 999 rupees.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase using 'retails for 999 rupees'.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle retails for 999 rupees.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-09",
+        "category": "paraphrase_supported",
+        "text": "Verdant Bottle keeps water chilled for 12 hrs.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase using 'chilled' and '12 hrs'.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle keeps water chilled for 12 hrs.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-10",
+        "category": "paraphrase_supported",
+        "text": "Drinks stay cold inside the Verdant Bottle for twelve hours.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase with word numeral 'twelve hours'.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Drinks stay cold inside the Verdant Bottle for twelve hours.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-11",
+        "category": "paraphrase_supported",
+        "text": "Verdant Bottle keeps drinks cold for 720 minutes.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase with minute-to-hour canonical unit conversion (720 min = 12 hours).",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle keeps drinks cold for 720 minutes.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-12",
+        "category": "paraphrase_supported",
+        "text": "Standard shipping arrives in 3-5 working days.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase using hyphenated range and 'working days'.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Standard shipping arrives in 3-5 working days.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-13",
+        "category": "paraphrase_supported",
+        "text": "Standard delivery takes three to five business days.",
+        "needs_verification": false,
+        "expected_status": "supported",
+        "note": "Paraphrase with word numerals for delivery range.",
+        "predicted_needs_verification": false,
+        "detected_claims": [
+          {
+            "text": "Standard delivery takes three to five business days.",
+            "status": "supported",
+            "match_type": "semantic_paraphrase"
+          }
+        ],
+        "result": "TN"
+      },
+      {
+        "id": "b-14",
+        "category": "benign_non_claim",
+        "text": "Best wishes from the Verdant team.",
+        "needs_verification": false,
+        "expected_status": "no_claim",
+        "note": "Greeting using 'Best wishes'—not a superiority claim.",
+        "predicted_needs_verification": false,
+        "detected_claims": [],
+        "result": "TN"
+      },
+      {
+        "id": "b-15",
+        "category": "benign_non_claim",
+        "text": "All the best on your morning trail walk.",
+        "needs_verification": false,
+        "expected_status": "no_claim",
+        "note": "Polite sign-off using 'All the best'.",
+        "predicted_needs_verification": false,
+        "detected_claims": [],
+        "result": "TN"
+      },
+      {
+        "id": "b-16",
+        "category": "benign_non_claim",
+        "text": "Here are 3 ways to enjoy your walk.",
+        "needs_verification": false,
+        "expected_status": "no_claim",
+        "note": "Editorial list heading with benign number.",
+        "predicted_needs_verification": false,
+        "detected_claims": [],
+        "result": "TN"
+      },
+      {
+        "id": "b-17",
+        "category": "benign_non_claim",
+        "text": "5 tips to simplify your morning routine.",
+        "needs_verification": false,
+        "expected_status": "no_claim",
+        "note": "Editorial list heading without product claim.",
+        "predicted_needs_verification": false,
+        "detected_claims": [],
+        "result": "TN"
+      },
+      {
+        "id": "b-18",
+        "category": "benign_non_claim",
+        "text": "Designed for calm, everyday hydration.",
+        "needs_verification": false,
+        "expected_status": "no_claim",
+        "note": "Subjective brand positioning without factual claim.",
+        "predicted_needs_verification": false,
+        "detected_claims": [],
+        "result": "TN"
+      },
+      {
+        "id": "b-19",
+        "category": "quantity_mismatch",
+        "text": "Verdant Bottle holds 900 ml.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Wrong volume quantity (900 ml vs 750 ml).",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle holds 900 ml.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-20",
+        "category": "quantity_mismatch",
+        "text": "Verdant Bottle costs INR 699.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Wrong price quantity (INR 699 vs INR 999).",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle costs INR 699.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-21",
+        "category": "quantity_mismatch",
+        "text": "Verdant Bottle keeps drinks cold for 48 hours.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Wrong thermal duration (48 hours vs 12 hours).",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle keeps drinks cold for 48 hours.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-22",
+        "category": "unit_mismatch",
+        "text": "Verdant Bottle holds 750 litres.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Unit mismatch (750 L = 750,000 ml vs 750 ml).",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle holds 750 litres.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-23",
+        "category": "unit_mismatch",
+        "text": "Verdant Bottle costs $999.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Currency unit mismatch (USD 999 vs INR 999).",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle costs $999.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-24",
+        "category": "unit_mismatch",
+        "text": "Standard delivery takes 3 to 5 days.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Calendar days vs business days unit mismatch.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Standard delivery takes 3 to 5 days.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-25",
+        "category": "variant_mismatch",
+        "text": "Verdant Mini holds 750 ml.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Different product variant (Verdant Mini vs Verdant Bottle).",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Mini holds 750 ml.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-26",
+        "category": "negation",
+        "text": "Verdant Bottle does not hold 750 ml.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Negated statement contradicting approved capacity.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle does not hold 750 ml.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-27",
+        "category": "negation",
+        "text": "Verdant Bottle never keeps drinks cold for 12 hours.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Negated thermal retention statement.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle never keeps drinks cold for 12 hours.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-28",
+        "category": "implicit_comparison",
+        "text": "Our bottle lasts twice as long.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Implicit multiplier comparison ('twice as long').",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Our bottle lasts twice as long.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-29",
+        "category": "implicit_comparison",
+        "text": "Buy it for half the price.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Implicit fractional pricing claim ('half the price').",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Buy it for half the price.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-30",
+        "category": "implicit_comparison",
+        "text": "Delivers 3x longer cold retention than ordinary bottles.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Explicit multiplier comparison ('3x longer').",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Delivers 3x longer cold retention than ordinary bottles.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-31",
+        "category": "comparative_superlative",
+        "text": "Our insulation outperforms every competitor.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Unsubstantiated comparative superiority claim.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Our insulation outperforms every competitor.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-32",
+        "category": "comparative_superlative",
+        "text": "The safest bottle for your family.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Unsubstantiated safety superlative.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "The safest bottle for your family.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-33",
+        "category": "comparative_superlative",
+        "text": "Verdant Bottle holds 750 ml and is the world's best bottle.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Approved fact combined with unapproved superlative in same sentence.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Verdant Bottle holds 750 ml and is the world's best bottle.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-34",
+        "category": "absolute_guarantee",
+        "text": "This bottle is unbreakable.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Absolute durability claim ('unbreakable').",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "This bottle is unbreakable.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-35",
+        "category": "absolute_guarantee",
+        "text": "Our product is carbon neutral.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Unverified environmental certification claim.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Our product is carbon neutral.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      },
+      {
+        "id": "b-36",
+        "category": "absolute_guarantee",
+        "text": "Our bottle cures headaches.",
+        "needs_verification": true,
+        "expected_status": "cannot_verify",
+        "note": "Unverified medical/health claim.",
+        "predicted_needs_verification": true,
+        "detected_claims": [
+          {
+            "text": "Our bottle cures headaches.",
+            "status": "cannot_verify",
+            "match_type": "none"
+          }
+        ],
+        "result": "TP"
+      }
+    ]
+  }
+}
