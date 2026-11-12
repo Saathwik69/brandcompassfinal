@@ -1,0 +1,13 @@
+services:
+  brandcompass:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - brandcompass-data:/app/data
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3000
+    restart: unless-stopped
+volumes:
+  brandcompass-data:
