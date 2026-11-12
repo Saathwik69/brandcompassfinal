@@ -6,7 +6,7 @@ A complete brand governance studio for **ByteRift — Poorvi S and Saathwik P Sh
 
 ## Run it on your laptop
 
-1. Install **Node.js** (works with Node 18, 20, 22, and 24 LTS).
+1. Install **Node.js 24 LTS**. This is the project's configured and tested deployment runtime.
 2. Extract the ZIP and open the `BrandCompass` folder in VS Code.
 3. Run:
 
@@ -35,6 +35,6 @@ npm run evaluate
 npm run build
 ```
 
-- `npm test`: **41 passed, 0 failed**.
+- `npm test`: **42 passed, 0 failed**.
 - `npm run evaluate`: **100.0% F1** on both the 30-case `samples/claim_evaluation.json` baseline and the separately prepared 36-case `samples/semantic_claim_benchmark.json` dataset.
 - `npm run smoke -- http://localhost:3000`: **10 HTTP end-to-end checks passed**.

@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Citation-first brand governance with semantic claim verification, server OCR & visual forensics, and Google Docs workflow integration.",
-  "engines": {"node": ">=18.0.0"},
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  },
   "scripts": {
     "start": "node server.mjs",
     "dev": "node server.mjs",

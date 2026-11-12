@@ -10,7 +10,7 @@ import { securityHeaders } from './src/security.mjs';
 const root = fileURLToPath(new URL('.', import.meta.url)),
   publicRoot = resolve(root, 'public');
 
-// Load .env if present (compatible with Node 18, 20, 22 and 24)
+// Load .env if present (supported Node.js 24 runtime)
 const envPath = resolve(root, '.env');
 if (existsSync(envPath)) {
   for (const line of readFileSync(envPath, 'utf8').split(/\r?\n/)) {
